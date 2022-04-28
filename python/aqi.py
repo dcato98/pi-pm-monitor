@@ -37,13 +37,12 @@ def construct_command(cmd, data=[]):
     assert len(data) <= 12
     data += [0,]*(12-len(data))
     checksum = (sum(data)+cmd-2)%256
-    ret = "\xaa\xb4" + chr(cmd)
-    ret += ''.join(chr(x) for x in data)
-    ret += "\xff\xff" + chr(checksum) + "\xab"
-    ret = ret.encode()
+    ret = [0xaa, 0xb4, cmd] + data + [0xff, 0xff, checksum, 0xab]
+    ret += ''.join(chr(x) for x in ret)
+#    ret += "\xff\xff" + chr(checksum) + "\xab"
+#    ret = ret.encode()
     
     print(type(ret), ret)
-    print(ret.decode())
 
     if DEBUG:
         dump(ret, '> ')
