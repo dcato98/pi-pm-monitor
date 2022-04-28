@@ -43,6 +43,7 @@ def construct_command(cmd, data=[]):
     ret = ret.encode()
     
     print(type(ret), ret)
+    print(ret.decode())
 
     if DEBUG:
         dump(ret, '> ')
