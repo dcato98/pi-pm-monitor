@@ -40,7 +40,7 @@ def construct_command(cmd, data=[]):
     ret = "\xaa\xb4" + chr(cmd)
     ret += ''.join(chr(x) for x in data)
     ret += "\xff\xff" + chr(checksum) + "\xab"
-#    ret = str.encode(ret)
+    ret = ret.encode('hex')
     
     print(type(ret), ret)
 
