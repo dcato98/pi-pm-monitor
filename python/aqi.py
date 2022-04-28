@@ -38,7 +38,7 @@ def construct_command(cmd, data=[]):
     data += [0,]*(12-len(data))
     checksum = (sum(data)+cmd-2)%256
     ret = [0xaa, 0xb4, cmd] + data + [0xff, 0xff, checksum, 0xab]
-    ret += ''.join(chr(x) for x in ret)
+    ret = ''.join(chr(x) for x in ret)
 #    ret += "\xff\xff" + chr(checksum) + "\xab"
 #    ret = ret.encode()
     
