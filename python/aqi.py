@@ -34,12 +34,22 @@ def dump(d, prefix=''):
     print(prefix + ' '.join(x.encode('hex') for x in d))
 
 def construct_command(cmd, data=[]):
+    print('cmd:', type(cmd), cmd, 'data:', type(data), data)
+    
     assert len(data) <= 12
     data += [0,]*(12-len(data))
+    
+    print('data:', type(data), data)
+    
     checksum = (sum(data)+cmd-2)%256
+    
+    print('checksum:', type(checksum), checksum)
+    
     ret = [b'\xaa', b'\xb4', bytes(cmd)] + [bytes(x) for x in data] + [b'\xff', b'\xff', bytes(checksum), b'\xab']
+    
+    print('ret:', type(ret), ret)
+    
     ret = b''.join(bytes(x) for x in ret)
-    #ret = ret.encode('utf-8')
     
     print(type(ret), ret)
 
