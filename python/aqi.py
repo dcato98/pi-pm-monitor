@@ -48,7 +48,7 @@ def construct_command(cmd, data=[]):
     ret = [0xaa, 0xb4, cmd] + data + [0xff, 0xff, checksum, 0xab]
 #    ret = [b'\xaa', b'\xb4', bytes(cmd)] + [bytes(x) for x in data] + [b'\xff', b'\xff', bytes(checksum), b'\xab']
     
-    print('ret:', type(ret), type(ret[0], ret)
+    print('ret:', type(ret), type(ret[0]), ret)
     
     ret = b''.join(bytes(x) for x in ret)
     
