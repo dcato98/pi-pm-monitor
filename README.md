@@ -1,5 +1,5 @@
 # Air Quality Monitor
-Measure AQI based on PM2.5 or PM10 with a Raspberry Pi and a SDS011 particle sensor. 
+Measure air quality (PM2.5 and PM10) with a SDS011 particle sensor on a Raspberry Pi. Units reported in μg/m3.
 
 Tested on Ubuntu Server 20.04.4 LTS, Python 3.8.10. PRs welcome.
 
