@@ -50,7 +50,7 @@ def construct_command(cmd, data=[]):
     
     print('ret:', type(ret), type(ret[0]), ret)
     
-    ret = b''.join(bytes(x) for x in ret)
+    ret = b''.join(bytes({x}) for x in ret)
     
     print(type(ret), ret)
 
