@@ -39,7 +39,7 @@ def construct_command(cmd, data=[]):
     checksum = (sum(data)+cmd-2)%256
     ret = ['\xaa', '\xb4', chr(cmd)] + [chr(x) for x in data] + ['\xff', '\xff', chr(checksum), '\xab']
     ret = ''.join(x for x in ret)
-    ret = ret.encode()
+    ret = ret.encode('ascii')
     
     print(type(ret), ret)
 
