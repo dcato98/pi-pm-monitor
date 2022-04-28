@@ -16,7 +16,7 @@ MODE_ACTIVE = 0
 MODE_QUERY = 1
 PERIOD_CONTINUOUS = 0
 
-JSON_FILE = '/var/www/html/aqi.json'
+JSON_FILE = 'pm-data.json'
 
 MQTT_HOST = ''
 MQTT_TOPIC = '/weather/particulatematter'
@@ -41,6 +41,8 @@ def construct_command(cmd, data=[]):
     ret += ''.join(chr(x) for x in data)
     ret += "\xff\xff" + chr(checksum) + "\xab"
     ret = str.encode(ret)
+    
+    print(type(ret), ret)
 
     if DEBUG:
         dump(ret, '> ')
